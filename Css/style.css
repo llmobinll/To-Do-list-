@@ -99,9 +99,7 @@ thead th:first-child {
 thead th:last-child {
   border-top-right-radius: 10px;
 }
-tbody {
-  display: none;
-}
+
 tbody td:last-child img:first-child {
   width: 30px;
   height: 27px;

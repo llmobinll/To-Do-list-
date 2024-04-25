@@ -5,6 +5,9 @@ const alertMessage = document.getElementById("alert-message");
 const bodyOfTable = document.querySelector("tbody");
 const todos = JSON.parse(localStorage.getItem("todos")) || [];
 const deleteAllButton = document.querySelector(".Delete");
+const deleteButton = document.getElementById("Delete");
+const editButton = document.getElementById("Edit");
+const doButton = document.getElementById("Do");
 
 const showMessage = (message, type) => {
   alertMessage.innerText = "";
@@ -17,6 +20,7 @@ const showMessage = (message, type) => {
     alert.style.display = "none";
   }, 2000);
 };
+
 const deleteAllHandler = () => {
   todos.splice(0, todos.length);
   localStorage.clear();
@@ -43,6 +47,7 @@ const addHandler = () => {
   if (task) {
     todos.push(todo);
     saveToLocalStorage();
+    displayTodos();
     addInput.value = "";
     dateInput.value = "";
     showMessage("To Do added sucssesfully", "sucsses");
@@ -52,5 +57,32 @@ const addHandler = () => {
   console.log(todos);
 };
 
+const displayTodos = () => {
+  bodyOfTable.innerHTML = "";
+  if (!todos.length) {
+    bodyOfTable.innerHTML = "<tr><td colspan = 4>No task found!</td></tr>";
+  }
+
+  todos.forEach((todo) => {
+    bodyOfTable.innerHTML += `
+    <tr>
+              <td>${todo.task}</td>
+              <td>${todo.date || "No Date"}</td>
+              <td>${todo.completed ? "completed" : "Pending"}</td>
+              <td>
+                <img src="./Css/icons8-pen-64.png" alt="" />
+                <img id="Do" src="./Css/icons8-done.svg" alt="" />
+                <img src="./Css/icons8-trash.svg" alt="" />
+              </td>
+    `;
+  });
+};
+
+const deleteButtonHandler = () => {};
+
+window.addEventListener("load", displayTodos);
 addButton.addEventListener("click", addHandler);
 deleteAllButton.addEventListener("click", deleteAllHandler);
+deleteButton.addEventListener("click", deleteButtonHandler);
+editButton.addEventListener("click", editButtonHandler);
+doButton.addEventListener("click", doButtonHandler);
