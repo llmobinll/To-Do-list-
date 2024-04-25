@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Css/style.css" />
+    <title>To Do list</title>
+  </head>
+  <body>
+    <body>
+      <div class="section1">
+        <h1>To Do list || Just do it!</h1>
+        <div class="input-section1">
+          <input class="adding" type="text" placeholder=" Add todo..." />
+          <input class="date" type="date" />
+          <button class="add">Add</button>
+        </div>
+        <div class="button-section1">
+          <div class="left-button">
+            <button class="top-button">All</button>
+            <button class="top-button">Pending</button>
+            <button class="top-button">completed</button>
+          </div>
+          <div class="right-button">
+            <button class="Delete">Delete All</button>
+          </div>
+        </div>
+      </div>
+      <div id="alert-message"></div>
+      <div class="section2">
+        <table>
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>text</td>
+              <td>date</td>
+              <td>Do</td>
+              <td>
+                <img src="./Css/icons8-pen-64.png" alt="" />
+                <img id="Do" src="./Css/icons8-done.svg" alt="" />
+                <img src="./Css/icons8-trash.svg" alt="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script src="./Js/script.js"></script>
+    </body>
+  </body>
+</html>
