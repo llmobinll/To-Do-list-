@@ -3,7 +3,7 @@ const addInput = document.querySelector(".adding");
 const dateInput = document.querySelector(".date");
 const alertMessage = document.getElementById("alert-message");
 const bodyOfTable = document.querySelector("tbody");
-const todos = JSON.parse(localStorage.getItem("todos")) || [];
+let todos = JSON.parse(localStorage.getItem("todos")) || [];
 const deleteAllButton = document.querySelector(".Delete");
 const deleteButton = document.getElementById("Delete");
 const editButton = document.getElementById("Edit");
@@ -22,9 +22,14 @@ const showMessage = (message, type) => {
 };
 
 const deleteAllHandler = () => {
-  todos.splice(0, todos.length);
-  localStorage.clear();
-  console.log(todos);
+  if (todos.length) {
+    todos = [];
+    saveToLocalStorage();
+    displayTodos();
+    showMessage("All To Do cleared sucssesfully", "sucsses");
+  } else {
+    showMessage("No To Do to clear!", "error");
+  }
 };
 
 const saveToLocalStorage = () => {
@@ -78,11 +83,11 @@ const displayTodos = () => {
   });
 };
 
-const deleteButtonHandler = () => {};
+// const deleteButtonHandler = () => {};
 
 window.addEventListener("load", displayTodos);
 addButton.addEventListener("click", addHandler);
 deleteAllButton.addEventListener("click", deleteAllHandler);
-deleteButton.addEventListener("click", deleteButtonHandler);
-editButton.addEventListener("click", editButtonHandler);
-doButton.addEventListener("click", doButtonHandler);
+// deleteButton.addEventListener("click", deleteButtonHandler);
+// editButton.addEventListener("click", editButtonHandler);
+// doButton.addEventListener("click", doButtonHandler);
