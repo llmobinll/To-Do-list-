@@ -77,17 +77,22 @@ const displayTodos = () => {
               <td>
                 <img src="./Css/icons8-pen-64.png" alt="" />
                 <img id="Do" src="./Css/icons8-done.svg" alt="" />
-                <img src="./Css/icons8-trash.svg" alt="" />
+                <img onclick="deleteHandler('${
+                  todo.id
+                }')" src="./Css/icons8-trash.svg" alt="" />
               </td>
     `;
   });
 };
 
-// const deleteButtonHandler = () => {};
+const deleteHandler = (id) => {
+  const newTodos = todos.filter((todo) => todo.id != id);
+  todos = newTodos;
+  saveToLocalStorage();
+  displayTodos();
+  showMessage("To Do delete sucssesfully", "sucsses");
+};
 
 window.addEventListener("load", displayTodos);
 addButton.addEventListener("click", addHandler);
 deleteAllButton.addEventListener("click", deleteAllHandler);
-// deleteButton.addEventListener("click", deleteButtonHandler);
-// editButton.addEventListener("click", editButtonHandler);
-// doButton.addEventListener("click", doButtonHandler);
