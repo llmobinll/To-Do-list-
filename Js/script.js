@@ -26,7 +26,7 @@ const deleteAllHandler = () => {
     todos = [];
     saveToLocalStorage();
     displayTodos();
-    showMessage("All To Do cleared sucssesfully", "sucsses");
+    showMessage("All To Do cleared successfully", "success");
   } else {
     showMessage("No To Do to clear!", "error");
   }
@@ -55,7 +55,7 @@ const addHandler = () => {
     displayTodos();
     addInput.value = "";
     dateInput.value = "";
-    showMessage("To Do added sucssesfully", "sucsses");
+    showMessage("To Do added successfully", "success");
   } else {
     showMessage("Pleas enter To Do!", "error");
   }
@@ -90,7 +90,7 @@ const deleteHandler = (id) => {
   todos = newTodos;
   saveToLocalStorage();
   displayTodos();
-  showMessage("To Do delete sucssesfully", "sucsses");
+  showMessage("To Do delete successfully", "success");
 };
 
 window.addEventListener("load", displayTodos);
